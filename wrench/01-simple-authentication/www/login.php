@@ -2,20 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-	<link rel="icon" type="image/png" href="favicon.ico">
+	<link rel="icon" type="image/png" href="images/favicon.ico">
 	  
     <title>Wrench Authentication Example - Wowzatoolbox.com</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <style>
-    body {
-        padding-top: 70px;
-        /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
-    }
-    </style>
+
 </head>
 <body>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -24,6 +19,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+				<img src="images/logo-white.png" alt="logo" style="float:left;margin-top:5px;margin-right:15px;"/>
                 <a class="navbar-brand" href="#">Wrench Authentication Example</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -61,11 +57,11 @@
 					<label for="exampleInputPassword1">Password</label>
 					<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
 				  </div>
-				  <button type="submit" name="submit" class="btn btn-sm btn-default">Sign in</button>
+				  <button type="submit" name="submit" class="btn btn-default btn-success">Sign in</button>
 				</form>
 		  </div>
 		</div>
-		<div class="row"><p class="alert">Use john / foobar if you have loaded the default setup SQL script</p></div>
+		<div class="row"><p class="well">Use <code>john</code> / <code>foobar</code> if you have loaded the default setup SQL script. User data is stored in the <code>wtb_user</code> database table</p></div>
 	</div>
 
     </div>

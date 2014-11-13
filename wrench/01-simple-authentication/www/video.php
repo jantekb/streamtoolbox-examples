@@ -29,17 +29,11 @@ if (!mysql_query($sql)) {
     <meta charset="utf-8">
     <title>Wrench Authentication Example - Wowzatoolbox.com</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
-	<link rel="icon" type="image/png" href="favicon.ico">
-    <style>
-    body {
-        padding-top: 70px;
-        /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
-    }
-    </style>
+	<link rel="icon" type="image/png" href="images/favicon.ico">
 </head>
 <body>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -48,6 +42,7 @@ if (!mysql_query($sql)) {
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+				<img src="images/logo-white.png" alt="logo" style="float:left;margin-top:5px;margin-right:15px;"/>
                 <a class="navbar-brand" href="#">Wrench Authentication Example</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -67,27 +62,26 @@ if (!mysql_query($sql)) {
                     </li>
                 </ul>
             </div>
-            <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container -->
     </nav>
 
-    <!-- Page Content -->
     <div class="container">
 		
 		<div class="row">
 		  <div class="col-sm-1"></div>
 		  <div class="col-sm-8">
-		    <div class="row"><h1>Welcome <?php echo $_SESSION['username']; ?></h1></div>
+		    <div class="row"><h1>Welcome <?php echo $_SESSION['username']; ?>, ready to stream?</h1></div>
 			
 			<div class="row">
 				<?php if($error) {
 				  echo '<p class="alert alert-danger">'.$error.'</p>';
 				}
 				?>
-				<p class="alert alert-success">
-				  When you logged in, this page generated the following token to you, which is now added to all video URLs: <code><?php echo $token; ?></code><br/>
-				  The md5 hash of this token (<code><?php echo hash('md5', $token); ?></code>) has been saved in the database, so Wrench will be able to associate this to your login.
+				<p class="well">
+				  When you logged in the following token was generated, which is now added to all video URLs: <code><?php echo $token; ?></code><br/>
+				  The md5 hash of this token (<code><?php echo hash('md5', $token); ?></code>) has been saved in the database, 
+				  so Wrench can find out who you are when the token is found in the connection URL in Wowza. 
+				  Check out <a href="http://wowzatoolbox.com/authentication-mechanism">this article for more details</a>.
 				</p>
 			</div>
 			
@@ -100,44 +94,46 @@ if (!mysql_query($sql)) {
 						<div class="col-sm-6">
 							<input type="text" class="form-control" id="server" name="server" value="localhost:1935">
 						</div>
-						<span class="col-sm-4 control-label">E.g. localhost:1935, 192.168.1.1:1935</span>
+						<span class="col-sm-4 control-label">E.g. <code>localhost:1935</code>, <code>192.168.1.1:1935</code></span>
 					</div>
 					<div class="form-group">
 						<label for="description" class="col-sm-2 control-label">Application Name</label>
 						<div class="col-sm-6">
-							<input type="text" class="form-control" id="appname" name="appname" value="live">
+							<input type="text" class="form-control" id="appname" name="appname" value="wrenchexample1">
 						</div>
-						<span class="col-sm-4 control-label">E.g. live, vod</span>
+						<span class="col-sm-4 control-label">E.g. <code>live</code>, <code>vod</code>, <code>wrenchexample1</code></span>
 					</div> 
 					<div class="form-group">
 						<label for="amount" class="col-sm-2 control-label">Stream</label>
 						<div class="col-sm-6">
 							<input type="text" class="form-control" id="stream" name="stream" value="mystream">
 						</div>
-						<span class="col-sm-4 control-label">E.g. mystream</span>
+						<span class="col-sm-4 control-label">E.g. <code>mystream</code></span>
 					</div>
 					<div class="form-group">
 						<label for="status" class="col-sm-2 control-label">HTTP URL</label>
-						<div class="col-sm-6">
-							<a href="#" id="httpurl">http://server:port/application/stream/playlist.m3u8?t=token</a>
+						<div class="col-sm-7">
+							<a href="#" id="httpurl">http://localhost:1935/wrenchexample1/mystream/playlist.m3u8?t=token</a>
 						</div>
+						<span class="col-sm-3 control-label">For Android and iOS</span>
 					</div>
 					<div class="form-group">
 						<label for="status" class="col-sm-2 control-label">RTMP URL for JW Player 5</label>
 						<div class="col-sm-6">
-							<a href="#" id="rtmpurl">rtmp://server:port/application/stream?t=token</a>
+							<a href="#" id="rtmpurl">rtmp://localhost:1935/wrenchexample1/mystream?t=token</a>
 						</div>
+						<span class="col-sm-4 control-label">Wrench will look for the <code>t</code> GET parameter in the URLs by default.</span>
 					</div>
 					<div class="form-group">
 						<label for="status" class="col-sm-2 control-label">RTMP URL for JW Player 6</label>
-						<div class="col-sm-6">
-							<a href="#" id="rtmpurl">rtmp://server:port/application/?t=token/stream</a>
+						<div class="col-sm-8">
+							<a href="#" id="rtmpurl">rtmp://localhost:1935/wrenchexample1/?t=token/mystream</a>
 						</div>
 					</div>					
 					  
 					<div class="form-group">
 						<div class="col-sm-8 text-right">
-							<button type="button" class="btn btn-default preview-add-button" id="regenerate">
+							<button type="button" class="btn btn-default preview-add-button btn-success" id="regenerate">
 								<span class="glyphicon glyphicon-refresh"></span> Refresh Links and JW Player
 							</button>
 						</div>
