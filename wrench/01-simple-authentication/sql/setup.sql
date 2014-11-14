@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS `wtb_tokens` (
 );
 
 -- This is what needs to be generated into the table from the code
---INSERT INTO `wtb_tokens` (`ID`, `USERNAME`, `TS`, `IP`, `TOKEN`) VALUES (1, 'john', '2014-11-09 16:16:37', '::1', '545f93654d320');
+-- INSERT INTO `wtb_tokens` (`ID`, `USERNAME`, `TS`, `IP`, `TOKEN`) VALUES (1, 'john', '2014-11-09 16:16:37', '::1', '545f93654d320');
 
 CREATE TABLE IF NOT EXISTS `wtb_user` (
   `username` varchar(255) NOT NULL,
