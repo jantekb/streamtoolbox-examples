@@ -179,7 +179,7 @@
 			
 			<!-- MINIMAL WRENCH SETTINGS FOR USER AUTHENTICATION -->
 			<Property><Name>wrench.encoder.token</Name><Value>encodersecret</Value></Property>
-			<Property><Name>wrench.token.resolver.sql</Name><Value>select username, encoder from wtb_tokens where token=:hashedtoken</Value></Property>
+			<Property><Name>wrench.token.resolver.sql</Name><Value>select username from wtb_tokens where token=:hashedtoken</Value></Property>
 			
 		</Properties>
 	</Application>
