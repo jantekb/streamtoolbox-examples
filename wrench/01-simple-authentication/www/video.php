@@ -120,14 +120,14 @@ if (!mysql_query($sql)) {
 					<div class="form-group">
 						<label for="status" class="col-sm-2 control-label">RTMP URL for JW Player 5</label>
 						<div class="col-sm-6">
-							<a href="#" id="rtmpurl">rtmp://localhost:1935/wrenchexample1/mystream?t=token</a>
+							<a href="#" id="rtmpurl5">rtmp://localhost:1935/wrenchexample1/mystream?t=token</a>
 						</div>
 						<span class="col-sm-4 control-label">Wrench will look for the <code>t</code> GET parameter in the URLs by default.</span>
 					</div>
 					<div class="form-group">
 						<label for="status" class="col-sm-2 control-label">RTMP URL for JW Player 6</label>
 						<div class="col-sm-8">
-							<a href="#" id="rtmpurl">rtmp://localhost:1935/wrenchexample1/?t=token/mystream</a>
+							<a href="#" id="rtmpurl6">rtmp://localhost:1935/wrenchexample1/?t=token/mystream</a>
 						</div>
 					</div>					
 					  

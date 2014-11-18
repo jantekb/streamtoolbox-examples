@@ -1,15 +1,20 @@
 function regenerateLinks() {
 
   var httpurl = 'http://' + $("#server").val() + '/' + $("#appname").val() + '/' + $("#stream").val() + '/playlist.m3u8?t=' + token;
-  var rtmpurl = 'rtmp://' + $("#server").val() + '/' + $("#appname").val() + '/' + $("#stream").val() + '?t=' + token;
+  var rtmpurl_jw5 = 'rtmp://' + $("#server").val() + '/' + $("#appname").val() + '/' + $("#stream").val() + '?t=' + token;
+  var rtmpurl_jw6 = 'rtmp://' + $("#server").val() + '/' + $("#appname").val() + '/?t=' + token + '/' + $("#stream").val();
 
   var httpAnchor = $('#httpurl');
   httpAnchor.attr("href", httpurl);
   httpAnchor.text(httpurl);
   
-  var rtmpAnchor = $('#rtmpurl');
-  rtmpAnchor.attr("href", rtmpurl);
-  rtmpAnchor.text(rtmpurl);
+  var rtmpAnchor = $('#rtmpurl5');
+  rtmpAnchor.attr("href", rtmpurl_jw5);
+  rtmpAnchor.text(rtmpurl_jw5);
+  
+  var rtmpAnchor = $('#rtmpurl6');
+  rtmpAnchor.attr("href", rtmpurl_jw6);
+  rtmpAnchor.text(rtmpurl_jw6);
 
 }
 
@@ -17,9 +22,7 @@ function setupPlayer() {
 	$("#player-container").empty();
 	
 	// this weird url is only needed for JW Player 6
-	var rtmpurl_jw6 = 'rtmp://' + $("#server").val() + '/' + $("#appname").val() + '/?t=' + token + '/' + $("#stream").val();
-	
-	console.log(rtmpurl_jw6);
+	var rtmpurl_jw6 = $('#rtmpurl6').text();
 	
 	jwplayer("player-container").setup({
 	  
