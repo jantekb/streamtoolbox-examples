@@ -11,11 +11,14 @@ include 'database.inc';
 // Generate random token for the current user
 $token = uniqid();
 
-// Insert the token into the database along with optionally the IP address and current timestamp
+// Insert the hash of the token into the database along with optionally the IP address and current timestamp
+// IP could be used if you wanted to enable the IP checking feature with setting wrench.token.ip.check = true
+// Timestamp could be used if you wanted token expiration checking by setting wrench.token.expiry.sec to something > 0
+
 $usr = mysql_real_escape_string($_SESSION['username']); 
 $ip = $_SERVER['REMOTE_ADDR'];
 
-$sql = "insert into wtb_tokens (username, token, ip, ts) values ('$usr','$token','$ip', now())";
+$sql = "insert into wtb_tokens (username, token, ip, ts) values ('$usr',md5('$token'),'$ip', now())";
 
 $error = false;
 if (!mysql_query($sql)) {
@@ -160,7 +163,7 @@ if (!mysql_query($sql)) {
 
 	<script type="text/javascript">
 	  /* Make the token available for the Javascript code as a global variable */
-	  token = '<?php echo $token; ?>';
+	  var token = '<?php echo $token; ?>';
 	</script>
 	
     <script src="js/jquery.js"></script>

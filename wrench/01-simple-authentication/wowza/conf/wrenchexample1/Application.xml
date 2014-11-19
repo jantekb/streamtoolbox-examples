@@ -181,6 +181,16 @@
 			<Property><Name>wrench.encoder.token</Name><Value>encodersecret</Value></Property>
 			<Property><Name>wrench.token.resolver.sql</Name><Value>select username from wtb_tokens where token=:hashedtoken</Value></Property>
 			
+			<!-- This would only allow connection from the IP stored in the database.
+			     If you enable this, you need to add the 'ip' column to the wrench.token.resolver.sql result set -->
+			<!--Property><Name>wrench.token.ip.check</Name><Value>true</Value></Property-->
+			
+			<!-- This would not allow connection with tokens older than the specified time.
+			     If you enable this, you need to add the 'ts as timestamp' column to the wrench.token.resolver.sql result set -->
+			<!--Property><Name>wrench.token.expiry.sec</Name><Value>60</Value></Property-->
+			
+			<!-- See the https://wowzatoolbox.com/wrench-reference for more details -->
+			  
 		</Properties>
 	</Application>
 </Root>
