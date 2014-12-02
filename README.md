@@ -10,13 +10,15 @@ Examples for the various tools on Wowzatoolbox.com that help seamless integratio
 
 1. Simple authentication with PHP frontend and MySQL database (`01-simple-authentication`)
 
-This example shows how to create a minimal video site which uses a MySQL database for storing users. Once the user gets in, a token is dynamically generated for him and stored in the database. This token is then put into video links so that Wrench can authenticate the user. All connections withtout valid token are refused.
+This example shows how to create a minimal video site which uses a MySQL database for storing users. Once the user gets in, a token is dynamically generated for him and stored in the database. This token is then put into video links so that Wrench can authenticate the user. All connections without a valid token are refused.
 
 ### Setup instructions
 
-Easiest if you [watch this YouTube video](https://www.youtube.com/watch?v=vDln3bqVmIk) and follow the instruction:
+Easiest if you [watch this YouTube video](https://www.youtube.com/watch?v=vDln3bqVmIk) and follow the instruction.
 
-1. Download the full package from GitHub
+[![Video Cover image](/wrench/01-simple-authentication/video-cover.png)](https://www.youtube.com/watch?v=vDln3bqVmIk)
+
+1. Download the full example package from GitHub
 1. Install an Apache/MySQL stack, like XAMPP
 1. Copy the contents of `www` into your webserver's `htdocs` folder
 1. Log into the MySQL database and run `sql/setup.sql` script to create the database, user, tables and minimal data
