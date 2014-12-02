@@ -14,7 +14,7 @@ This example shows how to create a minimal video site which uses a MySQL databas
 
 ### Setup instructions
 
-[![Instructions](http://img.youtube.com/vi/vDln3bqVmIk/0.jpg =250x)](https://www.youtube.com/watch?v=vDln3bqVmIk)
+[![Instructions](http://img.youtube.com/vi/vDln3bqVmIk/0.jpg)](https://www.youtube.com/watch?v=vDln3bqVmIk)
 
 1. Download the full package from GitHub
 1. Install an Apache/MySQL stack, like XAMPP
