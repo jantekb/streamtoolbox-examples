@@ -1,0 +1,2 @@
+# An example caption source file for Clamp
+{start: "2015.01.04 21:13:45.002", duration: 120, text: "Hello Clamp!", position: {x: 10, y: 50}, style: {font:"Times New Roman",size:80,style:"bolditalic",color: "green"}}
