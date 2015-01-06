@@ -5,6 +5,7 @@ Examples for the various tools on Wowzatoolbox.com that help seamless integratio
 
 - [Wrench for Wowza](https://wowzatoolbox.com/wrench): this tools provides flexible authentication, authorization mechanisms for both your stream consumers and producers. Also provides pay-per-minute and pay-per-view solutions and much more.
 - [Measure for Wowza](https://wowzatoolbox.com/measure): log player counts per stream, per streaming technology and per Wowza application using your own predefined SQL queries into your database
+- [Clamp for Wowza](https://wowzatoolbox.com/clamp): add captions to your live streams on-the-fly from a text file. This can be used for service information, advertisements, etc.
 
 ## Examples for Wrench
 
@@ -31,5 +32,13 @@ The FMS url you need to use is `rtmp://localhost:1935/wrenchexample1?t=encoderse
 
 ![PHP Login Screen](/wrench/01-simple-authentication/screenshot-0.png)
 ![Protected Video Site](/wrench/01-simple-authentication/screenshot-1.png)
-  
+
+## Examples for Clamp
+
+1. Dynamic text caption on a live stream from text file
+
+This example demonstrates how to put arbitrary text messages on your live video stream from a text file. Just follow this YouTube video:
+
+[![Video Cover image](/clamp/clampexample1/video-cover.png)](https://www.youtube.com/watch?v=quTyvWa6kD0)
+
   
