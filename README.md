@@ -37,8 +37,8 @@ The FMS url you need to use is `rtmp://localhost:1935/wrenchexample1?t=encoderse
 
 1. Dynamic text caption on a live stream from text file
 
-This example demonstrates how to put arbitrary text messages on your live video stream from a text file. Just follow this YouTube video:
+This example demonstrates how to put arbitrary text messages on your live video stream from a text file. Just [follow this YouTube video](https://www.youtube.com/watch?v=quTyvWa6kD0):
 
-[![Video Cover image](/clamp/clampexample1/video-cover.png)](https://www.youtube.com/watch?v=quTyvWa6kD0)
+[![Video Cover image](/clamp/01-file-caption-source/video-cover.png)](https://www.youtube.com/watch?v=quTyvWa6kD0)
 
   
