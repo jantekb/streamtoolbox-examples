@@ -1,11 +1,11 @@
-wowzatoolbox-examples
+streamtoolbox-examples
 =====================
 
-Examples for the various tools on Wowzatoolbox.com that help seamless integration between Wowza Streaming Engine and your own video streaming system.
+Examples for the various tools on Streamtoolbox.com that help seamless integration between Wowza Streaming Engine and your own video streaming system.
 
-- [Wrench for Wowza](https://wowzatoolbox.com/wrench): this tools provides flexible authentication, authorization mechanisms for both your stream consumers and producers. Also provides pay-per-minute and pay-per-view solutions and much more.
-- [Measure for Wowza](https://wowzatoolbox.com/measure): log player counts per stream, per streaming technology and per Wowza application using your own predefined SQL queries into your database
-- [Clamp for Wowza](https://wowzatoolbox.com/clamp): add captions to your live streams on-the-fly from a text file. This can be used for service information, advertisements, etc.
+- [Wrench for Wowza Streaming Engine](https://streamtoolbox.com/wrench): this tools provides flexible authentication, authorization mechanisms for both your stream consumers and producers. Also provides pay-per-minute and pay-per-view solutions and much more.
+- [Measure for Wowza Streaming Engine](https://streamtoolbox.com/measure): log player counts per stream, per streaming technology and per Wowza application using your own predefined SQL queries into your database
+- [Clamp for Wowza Streaming Engine](https://streamtoolbox.com/clamp): add captions to your live streams on-the-fly from a text file. This can be used for service information, advertisements, etc.
 
 ## Examples for Wrench
 
@@ -24,10 +24,10 @@ Easiest if you [watch this YouTube video](https://www.youtube.com/watch?v=vDln3b
 1. Copy the contents of `www` into your webserver's `htdocs` folder
 1. Log into the MySQL database and run `sql/setup.sql` script to create the database, user, tables and minimal data
 1. Copy the contents of the `wowza` directory into your own Wowza Streaming Engine installation to define the streaming application
-1. Download the [latest version of Wrench](https://wowzatoolbox.com/download#wrench) and put the jar file under your Wowza's `lib` directory
+1. Download the [latest version of Wrench](https://streamtoolbox.com/download#wrench) and put the jar file under your Wowza's `lib` directory
 1. Download the [latest MySql JDBC connector](http://dev.mysql.com/downloads/connector/j/5.0.html) and put the jar file under your Wowza's `lib` directory
 1. Start your Wowza Streaming Engine
-1. Publish your live stream, e.g webcam from [Flash Media Live Encoder]() into your Wowza server. Details on this can be found [in this article](https://wowzatoolbox.com/user-authentication).
+1. Publish your live stream, e.g webcam from [Flash Media Live Encoder]() into your Wowza server. Details on this can be found [in this article](https://streamtoolbox.com/user-authentication).
 The FMS url you need to use is `rtmp://localhost:1935/wrenchexample1?t=encodersecret` (this is given as encoder token in the provided `Application.xml`) and stream name should be `mystream`.
 
 ![PHP Login Screen](/wrench/01-simple-authentication/screenshot-0.png)
