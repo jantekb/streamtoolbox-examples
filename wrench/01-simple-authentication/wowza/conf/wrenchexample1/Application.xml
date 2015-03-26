@@ -165,7 +165,7 @@
 			<Module>
 				<Name>Wrench</Name>
 				<Description>Wrench provides user authentication to your application</Description>
-				<Class>com.wowzatoolbox.Wrench</Class>
+				<Class>com.streamtoolbox.Wrench</Class>
 			</Module>
 		</Modules>
 		<!-- Properties defined here will be added to the IApplication.getProperties() and IApplicationInstance.getProperties() collections -->
@@ -189,7 +189,7 @@
 			     If you enable this, you need to add the 'ts as timestamp' column to the wrench.token.resolver.sql result set -->
 			<!--Property><Name>wrench.token.expiry.sec</Name><Value>60</Value></Property-->
 			
-			<!-- See the https://wowzatoolbox.com/wrench-reference for more details -->
+			<!-- See the https://streamtoolbox.com/wrench-reference for more details -->
 			  
 		</Properties>
 	</Application>

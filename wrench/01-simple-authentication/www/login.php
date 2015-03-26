@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 	<link rel="icon" type="image/png" href="images/favicon.ico">
 	  
-    <title>Wrench Authentication Example - Wowzatoolbox.com</title>
+    <title>Wrench Authentication Example - Streamtoolbox.com</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
 </head>
@@ -26,13 +26,13 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="https://wowzatoolbox.com/wrench-reference">Wrench Reference</a>
+                        <a href="https://streamtoolbox.com/wrench-reference">Wrench Reference</a>
                     </li>
                     <li>
-                        <a href="https://wowzatoolbox.com/measure">Measure</a>
+                        <a href="https://streamtoolbox.com/measure">Measure</a>
                     </li>
                     <li>
-                        <a href="https://wowzatoolbox.com/clamp">Clamp</a>
+                        <a href="https://streamtoolbox.com/clamp">Clamp</a>
                     </li>
                 </ul>
             </div>

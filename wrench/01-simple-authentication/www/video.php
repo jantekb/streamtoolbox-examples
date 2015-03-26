@@ -30,7 +30,7 @@ if (!mysql_query($sql)) {
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Wrench Authentication Example - Wowzatoolbox.com</title>
+    <title>Wrench Authentication Example - Streamtoolbox.com</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
 	<link rel="icon" type="image/png" href="images/favicon.ico">
 </head>
@@ -52,13 +52,13 @@ if (!mysql_query($sql)) {
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="https://wowzatoolbox.com/wrench-reference">Wrench Reference</a>
+                        <a href="https://streamtoolbox.com/wrench-reference">Wrench Reference</a>
                     </li>
                     <li>
-                        <a href="https://wowzatoolbox.com/measure">Measure</a>
+                        <a href="https://streamtoolbox.com/measure">Measure</a>
                     </li>
                     <li>
-                        <a href="https://wowzatoolbox.com/clamp">Clamp</a>
+                        <a href="https://streamtoolbox.com/clamp">Clamp</a>
                     </li>
 					<li>
                         <a href="logout.php">Log out</a>
@@ -84,7 +84,7 @@ if (!mysql_query($sql)) {
 				  When you logged in the following token was generated, which is now added to all video URLs: <code><?php echo $token; ?></code><br/>
 				  The md5 hash of this token (<code><?php echo hash('md5', $token); ?></code>) has been saved in the database, 
 				  so Wrench can find out who you are when the token is found in the connection URL in Wowza. 
-				  Check out <a href="http://wowzatoolbox.com/authentication-mechanism">this article for more details</a>.
+				  Check out <a href="http://streamtoolbox.com/authentication-mechanism">this article for more details</a>.
 				</p>
 			</div>
 			
