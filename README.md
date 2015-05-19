@@ -1,11 +1,11 @@
 streamtoolbox-examples
 =====================
 
-Examples for the various tools on Streamtoolbox.com that help seamless integration between Wowza Streaming Engine and your own video streaming system.
+Examples for the various tools on Streamtoolbox.com that help seamless integration between Wowza Streaming Engine&reg; and your own video streaming system.
 
-- [Wrench for Wowza Streaming Engine](https://streamtoolbox.com/wrench): this tools provides flexible authentication, authorization mechanisms for both your stream consumers and producers. Also provides pay-per-minute and pay-per-view solutions and much more.
-- [Measure for Wowza Streaming Engine](https://streamtoolbox.com/measure): log player counts per stream, per streaming technology and per Wowza application using your own predefined SQL queries into your database
-- [Clamp for Wowza Streaming Engine](https://streamtoolbox.com/clamp): add captions to your live streams on-the-fly from a text file. This can be used for service information, advertisements, etc.
+- [Wrench](https://streamtoolbox.com/wrench): this tools provides flexible authentication, authorization mechanisms for both your stream consumers and producers. Also provides pay-per-minute and pay-per-view solutions and much more.
+- [Measure](https://streamtoolbox.com/measure): log player counts per stream, per streaming technology and per Wowza application using your own predefined SQL queries into your database
+- [Clamp](https://streamtoolbox.com/clamp): add captions to your live streams on-the-fly from a text file. This can be used for service information, advertisements, etc.
 
 ## Examples for Wrench
 
