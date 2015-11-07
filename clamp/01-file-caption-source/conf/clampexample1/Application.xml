@@ -180,7 +180,7 @@
 			<Module>
 				<Name>Clamp</Name>
 				<Description>Dynamic captions on-the-fly</Description>
-				<Class>com.wowzatoolbox.Clamp</Class>
+				<Class>com.streamtoolbox.Clamp</Class>
 			</Module>
 		</Modules>
 		<!-- Properties defined here will be added to the IApplication.getProperties() and IApplicationInstance.getProperties() collections -->
