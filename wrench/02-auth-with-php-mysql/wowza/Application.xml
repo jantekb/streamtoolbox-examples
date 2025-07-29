@@ -1,27 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Root version="1">
 	<Application>
-		<Name>clampexample1</Name>
+		<Name>live</Name>
 		<AppType>Live</AppType>
-		<Description></Description>
-		
+		<Description>Default application for live streaming created when Wowza Streaming Engine is installed. Use this application with its default configuration or modify the configuration as needed. You can also copy it to create another live application.</Description>
+		<!-- Uncomment to set application level timeout values
+		<ApplicationTimeout>60000</ApplicationTimeout>
+		<PingTimeout>12000</PingTimeout>
+		<ValidationFrequency>8000</ValidationFrequency>
+		<MaximumPendingWriteBytes>0</MaximumPendingWriteBytes>
+		<MaximumSetBufferTime>60000</MaximumSetBufferTime>
+		<MaximumStorageDirDepth>25</MaximumStorageDirDepth>
+		-->
 		<Connections>
 			<AutoAccept>true</AutoAccept>
 			<AllowDomains></AllowDomains>
 		</Connections>
-			<Streams>
+		<!--
+			StorageDir path variables
+			
+			${com.wowza.wms.AppHome} - Application home directory
+			${com.wowza.wms.ConfigHome} - Configuration home directory
+			${com.wowza.wms.context.VHost} - Virtual host name
+			${com.wowza.wms.context.VHostConfigHome} - Virtual host config directory
+			${com.wowza.wms.context.Application} - Application name
+			${com.wowza.wms.context.ApplicationInstance} - Application instance name
+			
+		-->
+		<Streams>
 			<StreamType>live</StreamType>
 			<StorageDir>${com.wowza.wms.context.VHostConfigHome}/content</StorageDir>
 			<KeyDir>${com.wowza.wms.context.VHostConfigHome}/keys</KeyDir>
-			<!-- LiveStreamPacketizers (separate with commas): cupertinostreamingpacketizer, smoothstreamingpacketizer, sanjosestreamingpacketizer, mpegdashstreamingpacketizer, cupertinostreamingrepeater, smoothstreamingrepeater, sanjosestreamingrepeater, mpegdashstreamingrepeater, dvrstreamingpacketizer, dvrstreamingrepeater -->
-			<LiveStreamPacketizers>cupertinostreamingpacketizer, mpegdashstreamingpacketizer, sanjosestreamingpacketizer, smoothstreamingpacketizer</LiveStreamPacketizers>
+			<!-- LiveStreamPacketizers (separate with commas): cupertinostreamingpacketizer, mpegdashstreamingpacketizer, cupertinostreamingrepeater,  mpegdashstreamingrepeater -->
+			<LiveStreamPacketizers>cupertinostreamingpacketizer,mpegdashstreamingpacketizer</LiveStreamPacketizers>
 			<!-- Properties defined here will override any properties defined in conf/Streams.xml for any streams types loaded by this application -->
 			<Properties>
 			</Properties>
 		</Streams>
 		<Transcoder>
 			<!-- To turn on transcoder set to: transcoder -->
-			<LiveStreamTranscoder>transcoder</LiveStreamTranscoder>
+			<LiveStreamTranscoder></LiveStreamTranscoder>
 			<!-- [templatename].xml or ${SourceStreamName}.xml -->
 			<Templates>${SourceStreamName}.xml,transrate.xml</Templates>
 			<ProfileDir>${com.wowza.wms.context.VHostConfigHome}/transcoder/profiles</ProfileDir>
@@ -29,35 +47,46 @@
 			<Properties>
 			</Properties>
 		</Transcoder>
+
 		<DVR>
 			<!-- As a single server or as an origin, use dvrstreamingpacketizer in LiveStreamPacketizers above -->
 			<!-- Or, in an origin-edge configuration, edges use dvrstreamingrepeater in LiveStreamPacketizers above -->
 			<!-- As an origin, also add dvrchunkstreaming to HTTPStreamers below -->
+
 			<!-- If this is a dvrstreamingrepeater, define Application/Repeater/OriginURL to point back to the origin -->
+			
 			<!-- To turn on DVR recording set Recorders to dvrrecorder.  This works with dvrstreamingpacketizer  -->
 			<Recorders></Recorders>
+
 			<!-- As a single server or as an origin, set the Store to dvrfilestorage-->
 			<!-- edges should have this empty -->
 			<Store></Store>
+
 			<!--  Window Duration is length of live DVR window in seconds.  0 means the window is never trimmed. -->
 			<WindowDuration>0</WindowDuration>
+
 			<!-- Storage Directory is top level location where dvr is stored.  e.g. c:/temp/dvr -->
 			<StorageDir>${com.wowza.wms.context.VHostConfigHome}/dvr</StorageDir>
+
 			<!-- valid ArchiveStrategy values are append, version, delete -->
 			<ArchiveStrategy>append</ArchiveStrategy>
+
 			<!-- Properties for DVR -->
 			<Properties>
 			</Properties>
 		</DVR>
+
 		<TimedText>
 			<!-- VOD caption providers (separate with commas): vodcaptionprovidermp4_3gpp, vodcaptionproviderttml, vodcaptionproviderwebvtt,  vodcaptionprovidersrt, vodcaptionproviderscc -->
 			<VODTimedTextProviders>vodcaptionprovidermp4_3gpp</VODTimedTextProviders>
+			
 			<!-- Properties for TimedText -->
 			<Properties>
 			</Properties>
 		</TimedText>
-		<!-- HTTPStreamers (separate with commas): cupertinostreaming, smoothstreaming, sanjosestreaming, mpegdashstreaming, dvrchunkstreaming -->
-		<HTTPStreamers>sanjosestreaming, cupertinostreaming, smoothstreaming, mpegdashstreaming</HTTPStreamers>
+
+		<!-- HTTPStreamers (separate with commas): cupertinostreaming,   mpegdashstreaming, dvrchunkstreaming -->
+		<HTTPStreamers>cupertinostreaming,mpegdashstreaming</HTTPStreamers>
 		<MediaCache>
 			<MediaCacheSourceList></MediaCacheSourceList>
 		</MediaCache>
@@ -89,12 +118,48 @@
 			<RTSPMaximumPendingWriteBytes>0</RTSPMaximumPendingWriteBytes>
 			<RTSPBindIpAddress></RTSPBindIpAddress>
 			<RTSPConnectionIpAddress>0.0.0.0</RTSPConnectionIpAddress>
+			<RTSPSsrcCheck>true</RTSPSsrcCheck>
 			<RTSPOriginIpAddress>127.0.0.1</RTSPOriginIpAddress>
 			<IncomingDatagramPortRanges>*</IncomingDatagramPortRanges>
 			<!-- Properties defined here will override any properties defined in conf/RTP.xml for any depacketizers loaded by this application -->
 			<Properties>
 			</Properties>
 		</RTP>
+		<WebRTC>
+			<!--  Enable WebRTC publishing to this application -->
+			<EnablePublish>false</EnablePublish>
+			 <!-- Enable WebRTC playback from this application -->
+			<EnablePlay>false</EnablePlay>
+			<!--  Enable query of published stream names for this application -->
+			<EnableQuery>false</EnableQuery>
+			<!--  IP address, transport, and port used for WebRTC streaming. -->
+			<!--TCP format: [wowza-streaming-engine-external-ip-address],tcp,[port] -->
+			<!--UDP format: [wowza-streaming-engine-external-ip-address],udp -->
+			<IceCandidateIpAddresses>127.0.0.1,tcp,1935</IceCandidateIpAddresses>
+			<!-- Local IP address of the network card you want to use for WebRTC UDP traffic -->
+			<UDPBindAddress></UDPBindAddress>
+			<!-- Comma-deliniated list of audio codecs, in order of preference, for stream ingestion -->
+			<PreferredCodecsAudio>opus,pcmu,pcma</PreferredCodecsAudio>
+			<!-- Comma-deliniated list of video codecs, in order of preference, for stream ingestion -->
+			<PreferredCodecsVideo>vp8,h264</PreferredCodecsVideo>
+			<!-- Enable WebRTC debug logging -->
+			<DebugLog>false</DebugLog>
+			<!-- Properties for WebRTC -->
+			<Properties>
+			</Properties>
+		</WebRTC>
+		<SRTListener>
+			<Authentication>
+				<!-- 
+				PublishMethod options:             
+        		- basic: Enable SRT listener mode for your application and require per-user passphrase          
+       		 	- none:  Enable SRT listener mode for your application and require global/default passphrase               
+                  	To bypass encryption, use 'none' and don't specify an srtPassPhrase in the VHost.xml       
+    			- block: Disable SRT listener mode for your application  
+				-->
+				<PublishMethod>block</PublishMethod>
+			</Authentication>
+		</SRTListener>
 		<MediaCaster>
 			<RTP>
 				<RTSP>
@@ -160,7 +225,7 @@
 		<StreamRecorder>
 			<Properties>
 			</Properties>
-		</StreamRecorder>
+		</StreamRecorder> 
 		<Modules>
 			<Module>
 				<Name>base</Name>
@@ -177,17 +242,39 @@
 				<Description>FLVPlayback</Description>
 				<Class>com.wowza.wms.module.ModuleFLVPlayback</Class>
 			</Module>
-			<Module>
-				<Name>Clamp</Name>
-				<Description>Dynamic captions on-the-fly</Description>
-				<Class>com.streamtoolbox.Clamp</Class>
+
+                        <Module>
+				<Name>Wrench</Name>
+				<Description>Wrench provides user authentication to your application</Description>
+				<Class>com.streamtoolbox.Wrench</Class>
 			</Module>
 		</Modules>
 		<!-- Properties defined here will be added to the IApplication.getProperties() and IApplicationInstance.getProperties() collections -->
 		<Properties>
-			<Property><Name>clamp.caption.source.file</Name><Value>c:\clamp.txt</Value></Property>
-			<!-- Uncomment this to switch off the calibration grid -->
-			<!--Property><Name>clamp.calibrate</Name><Value>false</Value></Property-->
+			<Property>
+				<Name>pushPublishMapPath</Name>
+				<Value>${com.wowza.wms.context.VHostConfigHome}/conf/${com.wowza.wms.context.Application}/PushPublishMap.txt</Value>
+				<Type>String</Type>
+			</Property>
+
+                        <!-- MINIMAL WRENCH SETTINGS FOR WRENCH DB CONNECTION -->
+			<Property><Name>wrench.db.url</Name><Value>jdbc:mysql://localhost:3306/wtbexampledb</Value></Property>
+			<Property><Name>wrench.db.user</Name><Value>wtbexample</Value></Property>
+			<Property><Name>wrench.db.pass</Name><Value>wtbexample123</Value></Property>
+			
+			<!-- MINIMAL WRENCH SETTINGS FOR USER AUTHENTICATION -->
+			<Property><Name>wrench.encoder.token</Name><Value>encodersecret</Value></Property>
+			<Property><Name>wrench.token.resolver.sql</Name><Value>select username from wtb_tokens where token=:hashedtoken</Value></Property>
+			
+			<!-- This would only allow connection from the IP stored in the database.
+			     If you enable this, you need to add the 'ip' column to the wrench.token.resolver.sql result set -->
+			<!--Property><Name>wrench.token.ip.check</Name><Value>true</Value></Property-->
+			
+			<!-- This would not allow connection with tokens older than the specified time.
+			     If you enable this, you need to add the 'ts as timestamp' column to the wrench.token.resolver.sql result set -->
+			<!--Property><Name>wrench.token.expiry.sec</Name><Value>60</Value></Property-->
+			
+			<!-- See the https://streamtoolbox.com/wrench-reference for more details -->
 		</Properties>
 	</Application>
 </Root>
