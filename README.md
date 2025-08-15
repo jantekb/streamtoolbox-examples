@@ -22,3 +22,9 @@ token is required for publishing a demo stream.
 
 ![PHP Login Screen](./wrench/02-auth-with-php-mysql/screenshot-1.png) 
 ![Protected Video Site](/wrench/02-auth-with-php-mysql/screenshot-2.png)
+
+3. [JWT Authentication with PHP webapp and MySQL database (`03-jwt-authentication`)](./wrench/03-jwt-authentication/)
+
+Similar to the previous example but uses JWT (JSON Web Tokens) for authentication instead of storing tokens in the database. When a user logs in, a JWT token is generated containing the username. This token is then used in video links for authentication. The JWT approach eliminates the need to store and manage tokens in the database while providing secure, stateless authentication.
+
+![JWT Authentication Example](./wrench/03-jwt-authentication/screenshot-2.png)
