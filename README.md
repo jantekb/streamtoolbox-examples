@@ -28,3 +28,7 @@ token is required for publishing a demo stream.
 Similar to the previous example but uses JWT (JSON Web Tokens) for authentication instead of storing tokens in the database. When a user logs in, a JWT token is generated containing the username. This token is then used in video links for authentication. The JWT approach eliminates the need to store and manage tokens in the database while providing secure, stateless authentication.
 
 ![JWT Authentication Example](./wrench/03-jwt-authentication/screenshot-2.png)
+
+4. [Pay-per-minute publisher tracking (`04-pay-per-minute-publisher`)](./wrench/04-pay-per-minute-publisher/)
+
+Uses Docker Compose to start a MySQL database and configures Wrench's PPM SQL hooks so an authenticated RTMP publisher's connected seconds are captured in the database.

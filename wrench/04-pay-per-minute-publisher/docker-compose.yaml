@@ -1,0 +1,14 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: wrench-ppm-mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+    volumes:
+      - ppmdbdata:/var/lib/mysql
+      - ./dbinit/setup.sql:/docker-entrypoint-initdb.d/setup.sql:ro
+
+volumes:
+  ppmdbdata:
